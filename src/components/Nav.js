@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const Nav = ({ theme, setTheme }) => {
   return (
@@ -59,22 +60,27 @@ const Nav = ({ theme, setTheme }) => {
           console.log(theme);
         }}
       >
-        keinK
+        <Link to="/">keinK</Link>
       </Logo>
       <Links>
-        <li>artist</li>
-        <li>imprint</li>
+        <li>
+          <Link to="/artist">artist</Link>
+        </li>
+        <li>
+          <Link to="/imprint">imprint</Link>
+        </li>
       </Links>
     </StyledNav>
   );
 };
 
 const StyledNav = styled.div`
-  position: absolute;
+  position: fixed;
   color: white;
   background: #141414;
   height: 10vh;
   width: 100%;
+  margin: 0;
   top: 0;
   left: 0;
   display: flex;
@@ -86,7 +92,7 @@ const StyledNav = styled.div`
 const Theme = styled.ul`
   list-style: none;
   display: flex;
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   margin: 0;
@@ -125,22 +131,41 @@ const Links = styled.ul`
     padding-right: 4rem;
     font-size: 1.5rem;
   }
+  a:link {
+    text-decoration: none;
+  }
+  a {
+    color: white;
+  }
+  a:hover {
+    color: #8ee6fc;
+  }
 `;
 
 const Logo = styled.h1`
-  font-size: 2rem;
+  font-size: 2.5rem;
   position: absolute;
   top: 0;
   left: 50%;
   margin: 0;
   transform: translate(-50%, -50%);
   margin-top: 5vh;
+  a:hover {
+    color: #8ee6fc;
+  }
+  a:link {
+    text-decoration: none;
+  }
+  a {
+    color: white;
+  }
 `;
 
 const Circle = styled.div`
+  cursor: pointer;
   position: absolute;
   top: 5vh;
-  transform: translateY(-50%);
+  transform: translate(-40px, -50%);
   margin: 0;
   background: green;
   height: 25px;
@@ -153,7 +178,7 @@ const Circle = styled.div`
     width: 35px;
     top: 5vh;
     position: absolute;
-    transform: translate(-5px, -50%);
+    transform: translate(-45px, -50%);
   }
 `;
 

@@ -1,13 +1,10 @@
-import React, { useState } from "react";
-import Filter from "./Filter";
+import React from "react";
 import styled from "styled-components";
 
-const Main = () => {
-  const [hoverState, setHoverState] = useState(false);
+const Artist = () => {
   return (
     <Page>
-      <Filter hoverState={hoverState} setHoverState={setHoverState} />
-      <h1>MAIN!</h1>
+      <h1>ARTIST!</h1>
     </Page>
   );
 };
@@ -29,4 +26,4 @@ const Page = styled.div`
   }
 `;
 
-export default Main;
+export default Artist;
