@@ -1,83 +1,82 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { ThemeProvider } from "styled-components";
 import { Link } from "react-router-dom";
+import ThemeData from "../Util";
 
 const Nav = ({ theme, setTheme }) => {
   return (
-    <StyledNav>
-      <Theme>
-        <li>
-          <Circle
-            className="circle0"
-            onClick={() => {
-              setTheme(0);
-            }}
-          ></Circle>
-        </li>
-        <li>
-          <Circle
-            className="circle1"
-            onClick={() => {
-              setTheme(1);
-            }}
-          ></Circle>
-        </li>
-        <li>
-          <Circle
-            className="circle2"
-            onClick={() => {
-              setTheme(2);
-            }}
-          ></Circle>
-        </li>
-        <li>
-          <Circle
-            className="circle3"
-            onClick={() => {
-              setTheme(3);
-            }}
-          ></Circle>
-        </li>
-        <li>
-          <Circle
-            className="circle4"
-            onClick={() => {
-              setTheme(4);
-            }}
-          ></Circle>
-        </li>
-        <li>
-          <Circle
-            className="circle5"
-            onClick={() => {
-              setTheme(5);
-            }}
-          ></Circle>
-        </li>
-      </Theme>
-      <Logo
-        onClick={() => {
-          console.log(theme);
-        }}
-      >
-        <Link to="/">keinK</Link>
-      </Logo>
-      <Links>
-        <li>
-          <Link to="/artist">artist</Link>
-        </li>
-        <li>
-          <Link to="/imprint">imprint</Link>
-        </li>
-      </Links>
-    </StyledNav>
+    <ThemeProvider theme={ThemeData[theme]}>
+      <StyledNav>
+        <Theme>
+          <li>
+            <Circle
+              className="circle0"
+              onClick={() => {
+                setTheme(0);
+              }}
+            ></Circle>
+          </li>
+          <li>
+            <Circle
+              className="circle1"
+              onClick={() => {
+                setTheme(1);
+              }}
+            ></Circle>
+          </li>
+          <li>
+            <Circle
+              className="circle2"
+              onClick={() => {
+                setTheme(2);
+              }}
+            ></Circle>
+          </li>
+          <li>
+            <Circle
+              className="circle3"
+              onClick={() => {
+                setTheme(3);
+              }}
+            ></Circle>
+          </li>
+          <li>
+            <Circle
+              className="circle4"
+              onClick={() => {
+                setTheme(4);
+              }}
+            ></Circle>
+          </li>
+          <li>
+            <Circle
+              className="circle5"
+              onClick={() => {
+                setTheme(5);
+              }}
+            ></Circle>
+          </li>
+        </Theme>
+        <Logo>
+          <Link to="/">keinK</Link>
+        </Logo>
+        <Links>
+          <li>
+            <Link to="/artist">artist</Link>
+          </li>
+          <li>
+            <Link to="/imprint">imprint</Link>
+          </li>
+        </Links>
+      </StyledNav>
+    </ThemeProvider>
   );
 };
 
 const StyledNav = styled.div`
   position: fixed;
   color: white;
-  background: #141414;
+  background: ${({ theme }) => theme.main_color};
   height: 10vh;
   width: 100%;
   margin: 0;
