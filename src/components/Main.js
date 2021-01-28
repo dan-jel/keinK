@@ -9,7 +9,7 @@ const Main = () => {
     <Page
       initial={{ opacity: 0, y: "-100%", transition: { ease: "easeOut" } }}
       animate={{ opacity: 1, y: "0", transition: { ease: "easeOut" } }}
-      exit={{ y: "200%", opacity: 0, transition: { ease: "easeOut" } }}
+      exit={{ y: "100%", opacity: 0, transition: { ease: "easeOut" } }}
     >
       <Filter hoverState={hoverState} setHoverState={setHoverState} />
       <h1>MAIN!</h1>
