@@ -11,21 +11,21 @@ import ThemeData from "./Util";
 
 function App() {
   const location = useLocation();
-  const [theme, setTheme] = useState(0);
+  const [activeTheme, setActiveTheme] = useState(0);
 
   return (
-    <StyledApp className="App" theme={ThemeData[theme]}>
+    <StyledApp className="App" theme={ThemeData[activeTheme]}>
       <AnimatePresence>
-        <Nav setTheme={setTheme} theme={theme} />
+        <Nav activeTheme={activeTheme} setActiveTheme={setActiveTheme} />
         <Switch location={location} key={location.key}>
           <Route path="/" exact>
-            <Main />
+            <Main activeTheme={activeTheme} />
           </Route>
           <Route path="/imprint" exact>
-            <Imprint />
+            <Imprint activeTheme={activeTheme} />
           </Route>
           <Route path="/artist" exact>
-            <Artist />
+            <Artist activeTheme={activeTheme} />
           </Route>
         </Switch>
       </AnimatePresence>

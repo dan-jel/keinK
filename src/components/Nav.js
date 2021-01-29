@@ -3,16 +3,16 @@ import styled, { ThemeProvider } from "styled-components";
 import { Link } from "react-router-dom";
 import ThemeData from "../Util";
 
-const Nav = ({ theme, setTheme }) => {
+const Nav = ({ activeTheme, setActiveTheme }) => {
   return (
-    <ThemeProvider theme={ThemeData[theme]}>
+    <ThemeProvider theme={ThemeData[activeTheme]}>
       <StyledNav>
         <Theme>
           <li>
             <Circle
               className="circle0"
               onClick={() => {
-                setTheme(0);
+                setActiveTheme(0);
               }}
             ></Circle>
           </li>
@@ -20,7 +20,7 @@ const Nav = ({ theme, setTheme }) => {
             <Circle
               className="circle1"
               onClick={() => {
-                setTheme(1);
+                setActiveTheme(1);
               }}
             ></Circle>
           </li>
@@ -28,7 +28,7 @@ const Nav = ({ theme, setTheme }) => {
             <Circle
               className="circle2"
               onClick={() => {
-                setTheme(2);
+                setActiveTheme(2);
               }}
             ></Circle>
           </li>
@@ -36,7 +36,7 @@ const Nav = ({ theme, setTheme }) => {
             <Circle
               className="circle3"
               onClick={() => {
-                setTheme(3);
+                setActiveTheme(3);
               }}
             ></Circle>
           </li>
@@ -44,7 +44,7 @@ const Nav = ({ theme, setTheme }) => {
             <Circle
               className="circle4"
               onClick={() => {
-                setTheme(4);
+                setActiveTheme(4);
               }}
             ></Circle>
           </li>
@@ -52,7 +52,7 @@ const Nav = ({ theme, setTheme }) => {
             <Circle
               className="circle5"
               onClick={() => {
-                setTheme(5);
+                setActiveTheme(5);
               }}
             ></Circle>
           </li>
@@ -75,8 +75,8 @@ const Nav = ({ theme, setTheme }) => {
 
 const StyledNav = styled.div`
   position: fixed;
-  color: white;
-  background: ${({ theme }) => theme.main_color};
+  color: ${({ theme }) => theme.color_text_1};
+  background: ${({ theme }) => theme.color_nav};
   height: 10vh;
   width: 100%;
   margin: 0;
@@ -129,15 +129,13 @@ const Links = styled.ul`
   li {
     padding-right: 4rem;
     font-size: 1.5rem;
-  }
-  a:link {
-    text-decoration: none;
-  }
-  a {
-    color: white;
-  }
-  a:hover {
-    color: #8ee6fc;
+    a {
+      color: ${({ theme }) => theme.color_text_1};
+      text-decoration: none;
+    }
+    a:hover {
+      color: ${({ theme }) => theme.color_hightlight};
+    }
   }
 `;
 
@@ -149,14 +147,15 @@ const Logo = styled.h1`
   margin: 0;
   transform: translate(-50%, -50%);
   margin-top: 5vh;
+  color: ${({ theme }) => theme.color_text};
   a:hover {
-    color: #8ee6fc;
+    color: ${({ theme }) => theme.color_hightlight};
   }
   a:link {
     text-decoration: none;
   }
   a {
-    color: white;
+    color: ${({ theme }) => theme.color_text_1};
   }
 `;
 
@@ -166,7 +165,6 @@ const Circle = styled.div`
   top: 5vh;
   transform: translate(-40px, -50%);
   margin: 0;
-  background: green;
   height: 25px;
   width: 25px;
   border-radius: 50%;
