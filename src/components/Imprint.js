@@ -1,11 +1,12 @@
 import React from "react";
 import styled, { ThemeProvider } from "styled-components";
 import { motion } from "framer-motion";
-import ThemeData from "../Util";
+import { useSelector } from "react-redux";
 
 const Imprint = ({ activeTheme }) => {
+  const theme = useSelector((store) => store.theme);
   return (
-    <ThemeProvider theme={ThemeData[activeTheme]}>
+    <ThemeProvider theme={theme.selected.theme}>
       <Page
         initial={{ opacity: 0, y: "-100%", transition: { ease: "easeOut" } }}
         animate={{ opacity: 1, y: "0", transition: { ease: "easeOut" } }}

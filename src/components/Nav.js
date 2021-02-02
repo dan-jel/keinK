@@ -1,18 +1,20 @@
 import React from "react";
 import styled, { ThemeProvider } from "styled-components";
 import { Link } from "react-router-dom";
-import ThemeData from "../Util";
+import { useSelector, useDispatch } from "react-redux";
 
-const Nav = ({ activeTheme, setActiveTheme }) => {
+const Nav = () => {
+  const theme = useSelector((store) => store.theme);
+  const dispatch = useDispatch();
   return (
-    <ThemeProvider theme={ThemeData[activeTheme]}>
+    <ThemeProvider theme={theme}>
       <StyledNav>
         <Theme>
           <li>
             <Circle
               className="circle0"
               onClick={() => {
-                setActiveTheme(0);
+                dispatch({ type: "SET_0" });
               }}
             ></Circle>
           </li>
@@ -20,7 +22,7 @@ const Nav = ({ activeTheme, setActiveTheme }) => {
             <Circle
               className="circle1"
               onClick={() => {
-                setActiveTheme(1);
+                dispatch({ type: "SET_1" });
               }}
             ></Circle>
           </li>
@@ -28,7 +30,7 @@ const Nav = ({ activeTheme, setActiveTheme }) => {
             <Circle
               className="circle2"
               onClick={() => {
-                setActiveTheme(2);
+                dispatch({ type: "SET_2" });
               }}
             ></Circle>
           </li>
@@ -36,7 +38,7 @@ const Nav = ({ activeTheme, setActiveTheme }) => {
             <Circle
               className="circle3"
               onClick={() => {
-                setActiveTheme(3);
+                dispatch({ type: "SET_3" });
               }}
             ></Circle>
           </li>
@@ -44,7 +46,7 @@ const Nav = ({ activeTheme, setActiveTheme }) => {
             <Circle
               className="circle4"
               onClick={() => {
-                setActiveTheme(4);
+                dispatch({ type: "SET_4" });
               }}
             ></Circle>
           </li>
@@ -52,7 +54,7 @@ const Nav = ({ activeTheme, setActiveTheme }) => {
             <Circle
               className="circle5"
               onClick={() => {
-                setActiveTheme(5);
+                dispatch({ type: "SET_5" });
               }}
             ></Circle>
           </li>
@@ -75,8 +77,8 @@ const Nav = ({ activeTheme, setActiveTheme }) => {
 
 const StyledNav = styled.div`
   position: fixed;
-  color: ${({ theme }) => theme.color_text_1};
-  background: ${({ theme }) => theme.color_nav};
+  color: ${({ theme }) => theme.selected.theme.color_text_1};
+  background: ${({ theme }) => theme.selected.theme.color_nav};
   height: 10vh;
   width: 100%;
   margin: 0;
@@ -100,21 +102,27 @@ const Theme = styled.ul`
   }
   .circle0 {
     background: #663399;
+    border-radius: ${({ theme }) => theme.selected.id === 0 && "0"};
   }
   .circle1 {
     background: #6a5acd;
+    border-radius: ${({ theme }) => theme.selected.id === 1 && "0"};
   }
   .circle2 {
     background: #9370db;
+    border-radius: ${({ theme }) => theme.selected.id === 2 && "0"};
   }
   .circle3 {
     background: #9932cc;
+    border-radius: ${({ theme }) => theme.selected.id === 3 && "0"};
   }
   .circle4 {
     background: #ee82ee;
+    border-radius: ${({ theme }) => theme.selected.id === 4 && "0"};
   }
   .circle5 {
     background: #dda0dd;
+    border-radius: ${({ theme }) => theme.selected.id === 5 && "0"};
   }
 `;
 
@@ -130,11 +138,11 @@ const Links = styled.ul`
     padding-right: 4rem;
     font-size: 1.5rem;
     a {
-      color: ${({ theme }) => theme.color_text_1};
+      color: ${({ theme }) => theme.selected.theme.color_text_1};
       text-decoration: none;
     }
     a:hover {
-      color: ${({ theme }) => theme.color_hightlight};
+      color: ${({ theme }) => theme.selected.theme.color_hightlight};
     }
   }
 `;
@@ -147,15 +155,15 @@ const Logo = styled.h1`
   margin: 0;
   transform: translate(-50%, -50%);
   margin-top: 5vh;
-  color: ${({ theme }) => theme.color_text};
+  color: ${({ theme }) => theme.selected.theme.color_text};
   a:hover {
-    color: ${({ theme }) => theme.color_hightlight};
+    color: ${({ theme }) => theme.selected.theme.color_hightlight};
   }
   a:link {
     text-decoration: none;
   }
   a {
-    color: ${({ theme }) => theme.color_text_1};
+    color: ${({ theme }) => theme.selected.theme.color_text_1};
   }
 `;
 

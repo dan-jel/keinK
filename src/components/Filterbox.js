@@ -10,35 +10,30 @@ const Filterbox = ({ activeTheme }) => {
   return (
     <FilterBox>
       <Filter
-        activeTheme={activeTheme}
         hoverState={filter.photo.show}
         name="PHOTO"
         type="PHOTO"
         color="red"
       />
       <Filter
-        activeTheme={activeTheme}
         hoverState={filter.video.show}
         name="VIDEO"
         type="VIDEO"
         color="blue"
       />
       <Filter
-        activeTheme={activeTheme}
         hoverState={filter.writing.show}
         name="WRITING"
         type="WRITING"
         color="yellow"
       />
       <Filter
-        activeTheme={activeTheme}
         hoverState={filter.threeD.show}
         name="3D"
         type="THREED"
         color="green"
       />
       <Filter
-        activeTheme={activeTheme}
         hoverState={filter.music.show}
         name="MUSIC"
         type="MUSIC"

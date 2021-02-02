@@ -7,14 +7,15 @@ import { Switch, Route, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import styled from "styled-components";
 import { motion } from "framer-motion";
-import ThemeData from "./Util";
+import { useSelector } from "react-redux";
 
 function App() {
   const location = useLocation();
+  const theme = useSelector((store) => store.theme);
   const [activeTheme, setActiveTheme] = useState(0);
 
   return (
-    <StyledApp className="App" theme={ThemeData[activeTheme]}>
+    <StyledApp className="App" theme={theme.selected.theme}>
       <AnimatePresence>
         <Nav activeTheme={activeTheme} setActiveTheme={setActiveTheme} />
         <Switch location={location} key={location.key}>

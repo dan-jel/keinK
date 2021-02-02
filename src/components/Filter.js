@@ -1,13 +1,13 @@
 import React from "react";
 import styled, { ThemeProvider } from "styled-components";
 import { motion } from "framer-motion";
-import ThemeData from "../Util";
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
-const Filter = ({ hoverState, name, color, activeTheme, type }) => {
+const Filter = ({ hoverState, name, color, type }) => {
   const dispatch = useDispatch();
+  const theme = useSelector((store) => store.theme);
   return (
-    <ThemeProvider theme={ThemeData[activeTheme]}>
+    <ThemeProvider theme={theme.selected.theme}>
       <FilterContainer
         hoverState={hoverState}
         onClick={() => dispatch({ type: `${type}_CLICK` })}
