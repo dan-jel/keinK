@@ -41,7 +41,7 @@ const StyledApp = styled(motion.div)`
   left: 0;
   width: 100%;
   height: 100%;
-  background: ${({ theme }) => theme.main_color};
+  background: ${({ theme }) => theme.color_main};
 `;
 
 export default App;

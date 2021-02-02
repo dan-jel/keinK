@@ -14,10 +14,12 @@ const Filter = ({ hoverState, name, color, activeTheme, type }) => {
         onMouseEnter={() => dispatch({ type: `${type}_HOVER` })}
         onMouseLeave={() => dispatch({ type: `${type}_LEAVE` })}
       >
-        <HoverDiv hoverState={hoverState}>
-          <Circle color={color} hoverState={hoverState} />
-          <FilterName hoverState={hoverState}>{name}</FilterName>
-        </HoverDiv>
+        {hoverState === true && (
+          <HoverDiv>
+            <Circle color={color} hoverState={hoverState} />
+            <FilterName hoverState={hoverState}>{name}</FilterName>
+          </HoverDiv>
+        )}
       </FilterContainer>
     </ThemeProvider>
   );
@@ -25,13 +27,17 @@ const Filter = ({ hoverState, name, color, activeTheme, type }) => {
 
 const FilterContainer = styled.div`
   margin-bottom: 1rem;
+  margin-right: 1rem;
   display: flex;
-  width: 100%;
-  height: 100%;
+  width: 200px;
+  height: 3rem;
   display: flex;
+  bottom: 0;
+  right: 0;
   align-items: center;
   text-align: center;
   cursor: pointer;
+  overflow: hidden;
 `;
 
 const Circle = styled(motion.div)`
@@ -55,10 +61,6 @@ const FilterName = styled(motion.div)`
 
 const HoverDiv = styled(motion.div)`
   display: flex;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  visibility: ${(props) => (props.hoverState ? `visible` : `hidden`)};
 `;
 
 export default Filter;
