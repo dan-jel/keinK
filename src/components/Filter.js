@@ -27,6 +27,7 @@ const Filter = ({ hoverState, name, color, type }) => {
 
 const FilterContainer = styled.div`
   margin-bottom: 1rem;
+  z-index: 1000;
   margin-right: 1rem;
   display: flex;
   width: 200px;
