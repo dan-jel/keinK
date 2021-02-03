@@ -8,7 +8,7 @@ function Rando(Min, Max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-const Card = ({ dragConstraints, project }) => {
+const Card = ({ dragConstraints, project, img }) => {
   const transition = {
     min: 0,
     max: 30,
@@ -16,7 +16,6 @@ const Card = ({ dragConstraints, project }) => {
   };
   const x = Rando(0, 80);
   const y = Rando(0, 80);
-  console.log(x, y);
 
   return (
     <Canvas
@@ -25,17 +24,41 @@ const Card = ({ dragConstraints, project }) => {
       dragTransition={transition}
       xCord={x}
       yCord={y}
-    ></Canvas>
+      project={project}
+    >
+      <CardImg project={project}>
+        <img src={img} alt={project.name} />
+      </CardImg>
+      <CardText></CardText>
+    </Canvas>
   );
 };
 
 const Canvas = styled(motion.div)`
-  background: red;
-  position: absolute;
-  height: 200px;
-  width: 200px;
-  top: ${(props) => props.yCord}%;
-  left: ${(props) => props.xCord}%;
+  background: ${(props) => props.project.color};
+  height: auto;
+  width: auto;
+  grid-column: ${(props) => props.project.pos[0]};
+  grid-row: ${(props) => props.project.pos[1]};
 `;
+
+const CardImg = styled.div`
+  position: relative;
+  width: ${(props) => props.project.split[0]}%;
+  height: ${(props) => props.project.split[1]}%;
+  overflow: hidden;
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: ${(props) => props.project.img_width};
+    height: ${(props) => props.project.img_height};
+  }
+`;
+
+const CardText = styled.div``;
 
 export default Card;

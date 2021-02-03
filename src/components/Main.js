@@ -6,9 +6,18 @@ import { useSelector } from "react-redux";
 import Card from "./Card";
 import Projects from "../Projects";
 
+// Import Images
+import img0 from "../img/0.JPG";
+import img1 from "../img/1.jpeg";
+import img2 from "../img/2.jpg";
+import img3 from "../img/3.jpg";
+import img4 from "../img/4.jpeg";
+import img5 from "../img/5.jpeg";
+
 const Main = ({ activeTheme }) => {
   const theme = useSelector((store) => store.theme);
   const contraintsRef = useRef(null);
+  const images = [img0, img1, img2, img3, img4, img5];
   return (
     <ThemeProvider theme={theme.selected.theme}>
       <Page
@@ -23,6 +32,7 @@ const Main = ({ activeTheme }) => {
               project={project}
               dragConstraints={contraintsRef}
               key={project.id}
+              img={images[project.id]}
             />
           ))}
         </Cardbox>
@@ -50,16 +60,17 @@ const Page = styled(motion.div)`
 `;
 
 const Cardbox = styled(motion.div)`
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
   position: relative;
-  background: #363636;
   top: 0;
   left: 0;
   width: 70vw;
   height: 75vh;
   transform: translateY(5vh);
   z-index: -10;
-  border-radius: 5%;
 `;
 
 export default Main;
