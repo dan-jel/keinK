@@ -1,6 +1,5 @@
 import Nav from "./components/Nav";
 import Main from "./components/Main";
-import Artist from "./components/Artist";
 import Imprint from "./components/Imprint";
 import React, { useState } from "react";
 import { Switch, Route, useLocation } from "react-router-dom";
@@ -24,9 +23,6 @@ function App() {
           </Route>
           <Route path="/imprint" exact>
             <Imprint activeTheme={activeTheme} />
-          </Route>
-          <Route path="/artist" exact>
-            <Artist activeTheme={activeTheme} />
           </Route>
         </Switch>
       </AnimatePresence>
