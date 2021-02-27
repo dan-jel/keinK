@@ -1,6 +1,5 @@
 import Nav from "./components/Nav";
 import Main from "./components/Main";
-import Artist from "./components/Artist";
 import Imprint from "./components/Imprint";
 import React, { useState } from "react";
 import { Switch, Route, useLocation } from "react-router-dom";
@@ -8,6 +7,7 @@ import { AnimatePresence } from "framer-motion";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import { useSelector } from "react-redux";
+import GlobalStyle from "./GlobalStyles";
 
 function App() {
   const location = useLocation();
@@ -15,7 +15,8 @@ function App() {
   const [activeTheme, setActiveTheme] = useState(0);
 
   return (
-    <StyledApp className="App" theme={theme.selected.theme}>
+    <StyledApp className="App" theme={theme}>
+      <GlobalStyle />
       <AnimatePresence>
         <Nav activeTheme={activeTheme} setActiveTheme={setActiveTheme} />
         <Switch location={location} key={location.key}>
@@ -24,9 +25,6 @@ function App() {
           </Route>
           <Route path="/imprint" exact>
             <Imprint activeTheme={activeTheme} />
-          </Route>
-          <Route path="/artist" exact>
-            <Artist activeTheme={activeTheme} />
           </Route>
         </Switch>
       </AnimatePresence>

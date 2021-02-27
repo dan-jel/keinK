@@ -19,7 +19,7 @@ const Main = ({ activeTheme }) => {
   const contraintsRef = useRef(null);
   const images = [img0, img1, img2, img3, img4, img5];
   return (
-    <ThemeProvider theme={theme.selected.theme}>
+    <ThemeProvider theme={theme}>
       <Page
         initial={{ opacity: 0, y: "-100%", transition: { ease: "easeOut" } }}
         animate={{ opacity: 1, y: "0", transition: { ease: "easeOut" } }}

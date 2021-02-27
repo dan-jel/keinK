@@ -7,7 +7,7 @@ const Filter = ({ hoverState, name, color, type }) => {
   const dispatch = useDispatch();
   const theme = useSelector((store) => store.theme);
   return (
-    <ThemeProvider theme={theme.selected.theme}>
+    <ThemeProvider theme={theme}>
       <FilterContainer
         hoverState={hoverState}
         onClick={() => dispatch({ type: `${type}_CLICK` })}

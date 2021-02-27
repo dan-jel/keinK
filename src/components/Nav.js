@@ -12,6 +12,7 @@ const Nav = () => {
         <Theme>
           <li>
             <Circle
+              title="default"
               className="circle0"
               onClick={() => {
                 dispatch({ type: "SET_0" });
@@ -20,6 +21,7 @@ const Nav = () => {
           </li>
           <li>
             <Circle
+              title="chiara"
               className="circle1"
               onClick={() => {
                 dispatch({ type: "SET_1" });
@@ -28,6 +30,7 @@ const Nav = () => {
           </li>
           <li>
             <Circle
+              title="daniel"
               className="circle2"
               onClick={() => {
                 dispatch({ type: "SET_2" });
@@ -36,6 +39,7 @@ const Nav = () => {
           </li>
           <li>
             <Circle
+              title="julius"
               className="circle3"
               onClick={() => {
                 dispatch({ type: "SET_3" });
@@ -44,6 +48,7 @@ const Nav = () => {
           </li>
           <li>
             <Circle
+              title="leo"
               className="circle4"
               onClick={() => {
                 dispatch({ type: "SET_4" });
@@ -52,6 +57,7 @@ const Nav = () => {
           </li>
           <li>
             <Circle
+              title="vincent"
               className="circle5"
               onClick={() => {
                 dispatch({ type: "SET_5" });
@@ -77,8 +83,8 @@ const Nav = () => {
 
 const StyledNav = styled.div`
   position: fixed;
-  color: ${({ theme }) => theme.selected.theme.color_text_1};
-  background: ${({ theme }) => theme.selected.theme.color_nav};
+  color: ${({ theme }) => theme.color_text_1};
+  background: ${({ theme }) => theme.color_nav};
   height: 10vh;
   width: 100%;
   margin: 0;
@@ -87,7 +93,7 @@ const StyledNav = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0px 7px 10px black;
+  // box-shadow: 0px 7px 10px black;
 `;
 
 const Theme = styled.ul`
@@ -102,27 +108,27 @@ const Theme = styled.ul`
   }
   .circle0 {
     background: #663399;
-    border-radius: ${({ theme }) => theme.selected.id === 0 && "0"};
+    border-radius: ${({ theme }) => theme.id === 0 && "0"};
   }
   .circle1 {
     background: #6a5acd;
-    border-radius: ${({ theme }) => theme.selected.id === 1 && "0"};
+    border-radius: ${({ theme }) => theme.id === 1 && "0"};
   }
   .circle2 {
     background: #9370db;
-    border-radius: ${({ theme }) => theme.selected.id === 2 && "0"};
+    border-radius: ${({ theme }) => theme.id === 2 && "0"};
   }
   .circle3 {
     background: #9932cc;
-    border-radius: ${({ theme }) => theme.selected.id === 3 && "0"};
+    border-radius: ${({ theme }) => theme.id === 3 && "0"};
   }
   .circle4 {
     background: #ee82ee;
-    border-radius: ${({ theme }) => theme.selected.id === 4 && "0"};
+    border-radius: ${({ theme }) => theme.id === 4 && "0"};
   }
   .circle5 {
     background: #dda0dd;
-    border-radius: ${({ theme }) => theme.selected.id === 5 && "0"};
+    border-radius: ${({ theme }) => theme.id === 5 && "0"};
   }
 `;
 
@@ -138,11 +144,11 @@ const Links = styled.ul`
     padding-right: 4rem;
     font-size: 1.5rem;
     a {
-      color: ${({ theme }) => theme.selected.theme.color_text_1};
+      color: ${({ theme }) => theme.color_text_1};
       text-decoration: none;
     }
     a:hover {
-      color: ${({ theme }) => theme.selected.theme.color_hightlight};
+      color: ${({ theme }) => theme.color_hightlight};
     }
   }
 `;
@@ -155,15 +161,15 @@ const Logo = styled.h1`
   margin: 0;
   transform: translate(-50%, -50%);
   margin-top: 5vh;
-  color: ${({ theme }) => theme.selected.theme.color_text};
+  color: ${({ theme }) => theme.color_text};
   a:hover {
-    color: ${({ theme }) => theme.selected.theme.color_hightlight};
+    color: ${({ theme }) => theme.color_hightlight};
   }
   a:link {
     text-decoration: none;
   }
   a {
-    color: ${({ theme }) => theme.selected.theme.color_text_1};
+    color: ${({ theme }) => theme.color_text_1};
   }
 `;
 
@@ -176,7 +182,7 @@ const Circle = styled.div`
   height: 25px;
   width: 25px;
   border-radius: 50%;
-  box-shadow: 2px 2px 5px 2px black;
+  // box-shadow: 2px 2px 5px 2px black;
   &:hover {
     margin: 0;
     height: 35px;
