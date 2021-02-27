@@ -1,7 +1,9 @@
+import LeosBackground from "../img/themes/leo.jpeg";
+import VincentsBackground from "../img/themes/vince.jpeg";
+
 const initialThemes = {
   zero: {
     id: 0,
-    font: "LeosFont",
     tag: "default",
     color_main: "#1f1f1f",
     color_nav: "#141414",
@@ -38,6 +40,8 @@ const initialThemes = {
   },
   four: {
     id: 4,
+    bg: true,
+    background: LeosBackground,
     tag: "leo",
     color_main: "red",
     color_nav: "blue",
@@ -47,6 +51,8 @@ const initialThemes = {
   },
   five: {
     id: 5,
+    bg: true,
+    background: VincentsBackground,
     tag: "vincent",
     color_main: "red",
     color_nav: "blue",

@@ -6,7 +6,6 @@ import reportWebVitals from "./reportWebVitals";
 import { createStore } from "redux";
 import allReducers from "./reducers";
 import { Provider } from "react-redux";
-import "./fonts/LeosFont.ttf";
 
 const store = createStore(
   allReducers,

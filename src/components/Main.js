@@ -25,6 +25,7 @@ const Main = ({ activeTheme }) => {
         animate={{ opacity: 1, y: "0", transition: { ease: "easeOut" } }}
         exit={{ y: "100%", opacity: 0, transition: { ease: "easeOut" } }}
       >
+        {theme.bg ? <BackgroundImage src={theme.background} alt="" /> : ""}
         <Filterbox activeTheme={activeTheme} />
         <Cardbox ref={contraintsRef}>
           {Projects.map((project) => (
@@ -41,18 +42,26 @@ const Main = ({ activeTheme }) => {
   );
 };
 
-const Page = styled(motion.div)`
-  top: 0;
+const BackgroundImage = styled.img`
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 100px;
   left: 0;
-  background: ${({ theme }) => theme.color_main};
+  z-index: -50;
+  object-fit: cover;
+`;
+
+const Page = styled(motion.div)`
+  overflow: hidden;
   width: 100%;
   height: 100%;
-  position: fixed;
+  position: relative;
   display: flex;
   z-index: -1;
   justify-content: center;
   align-items: center;
-  color: ${({ theme }) => theme.color_text_1};
+  background: ${(theme) => theme.color_main};
   h1 {
     color: ${({ theme }) => theme.color_text};
     font-size: 3rem;

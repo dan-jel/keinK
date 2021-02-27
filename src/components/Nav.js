@@ -3,49 +3,49 @@ import styled, { ThemeProvider } from "styled-components";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
+const DropDown = () => {
+  return (
+    <DropDownContainer>
+      <ul>
+        <li>
+          <Link to="/chiara">chiara</Link>
+        </li>
+        <li>
+          <Link to="/daniel">daniel</Link>
+        </li>
+        <li>
+          <Link to="/julius">julius</Link>
+        </li>
+        <li>
+          <Link to="/leonie">leonie</Link>
+        </li>
+        <li>
+          <Link to="/vincent">vincent</Link>
+        </li>
+      </ul>
+    </DropDownContainer>
+  );
+};
+
+const DropDownContainer = styled.div`
+  height: auto;
+  ul {
+    list-style-type: none;
+    align-items: center;
+    padding: 0;
+    li {
+      padding: 5px 0;
+      font-size: 1.25rem;
+    }
+  }
+`;
+
 const Nav = () => {
   const [artistHover, setArtistHover] = useState(false);
   const [artistClick, setArtistClick] = useState(false);
 
   const theme = useSelector((store) => store.theme);
   const dispatch = useDispatch();
-
-  const DropDown = () => {
-    return (
-      <DropDownContainer>
-        <ul>
-          <li>
-            <Link to="/chiara">chiara</Link>
-          </li>
-          <li>
-            <Link to="/daniel">daniel</Link>
-          </li>
-          <li>
-            <Link to="/julius">julius</Link>
-          </li>
-          <li>
-            <Link to="/leonie">leonie</Link>
-          </li>
-          <li>
-            <Link to="/vincent">vincent</Link>
-          </li>
-        </ul>
-      </DropDownContainer>
-    );
-  };
-
-  const DropDownContainer = styled.div`
-    height: auto;
-    ul {
-      list-style-type: none;
-      align-items: center;
-      padding: 0;
-      li {
-        padding: 5px 0;
-        font-size: 1.25rem;
-      }
-    }
-  `;
 
   return (
     <ThemeProvider theme={theme}>
@@ -145,7 +145,7 @@ const StyledNav = styled.div`
   position: fixed;
   color: ${({ theme }) => theme.color_text_1};
   background: ${({ theme }) => theme.color_nav};
-  height: 10vh;
+  height: 100px;
   width: 100%;
   margin: 0;
   top: 0;
