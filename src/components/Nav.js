@@ -1,11 +1,52 @@
-import React from "react";
+import React, { useState } from "react";
 import styled, { ThemeProvider } from "styled-components";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
 const Nav = () => {
+  const [artistHover, setArtistHover] = useState(false);
+  const [artistClick, setArtistClick] = useState(false);
+
   const theme = useSelector((store) => store.theme);
   const dispatch = useDispatch();
+
+  const DropDown = () => {
+    return (
+      <DropDownContainer>
+        <ul>
+          <li>
+            <Link to="/chiara">chiara</Link>
+          </li>
+          <li>
+            <Link to="/daniel">daniel</Link>
+          </li>
+          <li>
+            <Link to="/julius">julius</Link>
+          </li>
+          <li>
+            <Link to="/leonie">leonie</Link>
+          </li>
+          <li>
+            <Link to="/vincent">vincent</Link>
+          </li>
+        </ul>
+      </DropDownContainer>
+    );
+  };
+
+  const DropDownContainer = styled.div`
+    height: auto;
+    ul {
+      list-style-type: none;
+      align-items: center;
+      padding: 0;
+      li {
+        padding: 5px 0;
+        font-size: 1.25rem;
+      }
+    }
+  `;
+
   return (
     <ThemeProvider theme={theme}>
       <StyledNav>
@@ -69,9 +110,14 @@ const Nav = () => {
           <Link to="/">keinK</Link>
         </Logo>
         <Links>
-          <li>
-            <Link to="/artist">artist</Link>
-          </li>
+          <ArtistDiv
+            onMouseEnter={() => setArtistHover(true)}
+            onMouseLeave={() => setArtistHover(false)}
+          >
+            <li onClick={() => setArtistClick(!artistClick)}>artists</li>
+            {artistClick || artistHover ? <DropDown /> : ""}
+          </ArtistDiv>
+
           <li>
             <Link to="/imprint">imprint</Link>
           </li>
@@ -80,6 +126,20 @@ const Nav = () => {
     </ThemeProvider>
   );
 };
+
+const ArtistDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  right: 150px;
+  text-align: center;
+  li {
+    cursor: pointer;
+  }
+`;
 
 const StyledNav = styled.div`
   position: fixed;
@@ -141,7 +201,6 @@ const Links = styled.ul`
   margin: 0;
   transform: translateY(-50%);
   li {
-    padding-right: 4rem;
     font-size: 1.5rem;
     a {
       color: ${({ theme }) => theme.color_text_1};
