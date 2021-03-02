@@ -2,7 +2,7 @@ import Nav from "./components/Nav";
 import Main from "./components/Main";
 import Imprint from "./components/Imprint";
 import React, { useState } from "react";
-import { Switch, Route, useLocation } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import styled from "styled-components";
 import { motion } from "framer-motion";
@@ -17,7 +17,6 @@ import Vincent from "./components/artists/Vincent";
 import Leonie from "./components/artists/Leonie";
 
 function App() {
-  // const location = useLocation(); | wozu zum fick war das überhaupt da?
   const theme = useSelector((store) => store.theme);
   const [activeTheme, setActiveTheme] = useState(0);
 
