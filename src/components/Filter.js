@@ -7,7 +7,7 @@ const Filter = ({ hoverState, name, color, type }) => {
   const dispatch = useDispatch();
   const theme = useSelector((store) => store.theme);
   return (
-    <ThemeProvider theme={theme.selected.theme}>
+    <ThemeProvider theme={theme}>
       <FilterContainer
         hoverState={hoverState}
         onClick={() => dispatch({ type: `${type}_CLICK` })}
@@ -26,7 +26,7 @@ const Filter = ({ hoverState, name, color, type }) => {
 };
 
 const FilterContainer = styled.div`
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
   z-index: 1000;
   margin-right: 1rem;
   display: flex;
@@ -47,7 +47,6 @@ const Circle = styled(motion.div)`
   display: flex;
   background: ${(props) => props.color};
   border-radius: 50%;
-  margin-top: 0.2rem;
   margin-left: 1rem;
 `;
 
@@ -55,13 +54,14 @@ const FilterName = styled(motion.div)`
   margin: 0rem 1rem;
   height: 2rem;
   width: auto;
-  font-size: 2rem;
-
+  font-size: 1.5rem;
   color: ${({ theme }) => theme.color_text_1};
+  justify-content: center;
 `;
 
 const HoverDiv = styled(motion.div)`
   display: flex;
+  align-items: center;
 `;
 
 export default Filter;
