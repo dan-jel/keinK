@@ -71,7 +71,7 @@ const Nav = () => {
           </li>
         </Theme>
         <Logo>
-          <Link to="/">keinK</Link>
+          <Link to="/">taxi taxi</Link>
         </Logo>
         <Links>
           <ArtistDiv
@@ -195,6 +195,7 @@ const Logo = styled.h1`
     text-decoration: none;
   }
   a {
+    font-family: "Dosis", sans-serif;
     color: ${({ theme }) => theme.color_text_1};
   }
 `;

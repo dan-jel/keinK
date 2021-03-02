@@ -1,13 +1,18 @@
 import LeosBackground from "../img/themes/leo.jpeg";
 import VincentsBackground from "../img/themes/vince.jpeg";
 import ChiaraBackground from "../img/themes/chiara.jpeg";
+import JuliusBackground from "../img/themes/julo.jpeg";
+import DanielBackground from "../img/themes/daniel.jpeg";
+import DefaultBackground from "../img/themes/default.jpeg";
 
 const initialThemes = {
   zero: {
     id: 0,
+    bg: true,
+    background: DefaultBackground,
     tag: "default",
     color_main: "#1f1f1f",
-    color_nav: "#141414",
+    color_nav: "rgba(0,0,0,0.5)",
     color_text_1: "white",
     color_text_2: "white",
     color_hightlight: "blue",
@@ -18,26 +23,29 @@ const initialThemes = {
     background: ChiaraBackground,
     tag: "chiara",
     color_main: "#ADA296",
-    color_nav: "#312F2F",
+    color_nav: "rgba(0,0,0,0.5)",
     color_text_1: "white",
     color_text_2: "white",
     color_hightlight: "#8D5A97",
   },
   two: {
     id: 2,
+    bg: true,
+    background: DanielBackground,
     tag: "daniel",
     color_main: "lightgray",
-    color_nav: "white",
-    color_text_1: "black",
+    color_nav: "rgba(0,0,0,0.5)",
+    color_text_1: "white",
     color_text_2: "black",
     color_hightlight: "green",
   },
   three: {
     id: 3,
-    bg: false,
+    bg: true,
+    background: JuliusBackground,
     tag: "julius",
-    color_main: "red",
-    color_nav: "blue",
+    color_main: "black",
+    color_nav: "rgba(0,0,0,0.5)",
     color_text_1: "white",
     color_text_2: "white",
     color_hightlight: "orange",
@@ -48,7 +56,7 @@ const initialThemes = {
     background: LeosBackground,
     tag: "leo",
     color_main: "red",
-    color_nav: "blue",
+    color_nav: "rgba(0,0,0,0.5)",
     color_text_1: "white",
     color_text_2: "white",
     color_hightlight: "yellow",
@@ -59,7 +67,7 @@ const initialThemes = {
     background: VincentsBackground,
     tag: "vincent",
     color_main: "red",
-    color_nav: "blue",
+    color_nav: "rgba(0,0,0,0.5)",
     color_text_1: "white",
     color_text_2: "white",
     color_hightlight: "pink",

@@ -42,7 +42,7 @@ const BackgroundImage = styled.img`
   height: 100%;
   width: 100%;
   position: absolute;
-  top: 100px;
+  top: 0;
   left: 0;
   z-index: -50;
   object-fit: cover;
