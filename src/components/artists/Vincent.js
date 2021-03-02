@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 
-const Daniel = () => {
+const Vincent = () => {
   return (
     <Container>
-      <h1>Daniel</h1>
+      <h1>Vincent</h1>
     </Container>
   );
 };
@@ -19,4 +19,4 @@ const Container = styled.div`
   justify-content: center;
 `;
 
-export default Daniel;
+export default Vincent;

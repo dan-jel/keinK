@@ -3,15 +3,11 @@ import styled, { ThemeProvider } from "styled-components";
 import { motion } from "framer-motion";
 import { useSelector } from "react-redux";
 
-const Imprint = ({ activeTheme }) => {
+const Imprint = () => {
   const theme = useSelector((store) => store.theme);
   return (
-    <ThemeProvider theme={theme.selected.theme}>
-      <Page
-        initial={{ opacity: 0, y: "-100%", transition: { ease: "easeOut" } }}
-        animate={{ opacity: 1, y: "0", transition: { ease: "easeOut" } }}
-        exit={{ y: "100%", opacity: 0, transition: { ease: "easeOut" } }}
-      >
+    <ThemeProvider theme={theme}>
+      <Page>
         <h1>IMPRINT!</h1>
       </Page>
     </ThemeProvider>

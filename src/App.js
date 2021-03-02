@@ -9,23 +9,31 @@ import { motion } from "framer-motion";
 import { useSelector } from "react-redux";
 import GlobalStyle from "./GlobalStyles";
 
+// Artist Pages:
+import Daniel from "./components/artists/Daniel";
+import Chiara from "./components/artists/Chiara";
+import Julius from "./components/artists/Julius";
+import Vincent from "./components/artists/Vincent";
+import Leonie from "./components/artists/Leonie";
+
 function App() {
-  const location = useLocation();
+  // const location = useLocation(); | wozu zum fick war das überhaupt da?
   const theme = useSelector((store) => store.theme);
   const [activeTheme, setActiveTheme] = useState(0);
 
   return (
     <StyledApp className="App" theme={theme}>
       <GlobalStyle />
+      <Nav activeTheme={activeTheme} setActiveTheme={setActiveTheme} />
       <AnimatePresence>
-        <Nav activeTheme={activeTheme} setActiveTheme={setActiveTheme} />
-        <Switch location={location} key={location.key}>
-          <Route path="/" exact>
-            <Main activeTheme={activeTheme} />
-          </Route>
-          <Route path="/imprint" exact>
-            <Imprint activeTheme={activeTheme} />
-          </Route>
+        <Switch>
+          <Route exact path="/Imprint" component={Imprint} />
+          <Route exact path="/Chiara" component={Chiara} />
+          <Route exact path="/Daniel" component={Daniel} />
+          <Route exact path="/Julius" component={Julius} />
+          <Route exact path="/Leonie" component={Leonie} />
+          <Route exact path="/Vincent" component={Vincent} />
+          <Route exact path="/" component={Main} />
         </Switch>
       </AnimatePresence>
     </StyledApp>

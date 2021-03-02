@@ -20,11 +20,7 @@ const Main = ({ activeTheme }) => {
   const images = [img0, img1, img2, img3, img4, img5];
   return (
     <ThemeProvider theme={theme}>
-      <Page
-        initial={{ opacity: 0, y: "-100%", transition: { ease: "easeOut" } }}
-        animate={{ opacity: 1, y: "0", transition: { ease: "easeOut" } }}
-        exit={{ y: "100%", opacity: 0, transition: { ease: "easeOut" } }}
-      >
+      <Page>
         {theme.bg ? <BackgroundImage src={theme.background} alt="" /> : ""}
         <Filterbox activeTheme={activeTheme} />
         <Cardbox ref={contraintsRef}>
@@ -56,7 +52,9 @@ const Page = styled(motion.div)`
   overflow: hidden;
   width: 100%;
   height: 100%;
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
   display: flex;
   z-index: -1;
   justify-content: center;

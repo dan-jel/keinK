@@ -1,44 +1,8 @@
 import React, { useState } from "react";
 import styled, { ThemeProvider } from "styled-components";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-
-const DropDown = () => {
-  return (
-    <DropDownContainer>
-      <ul>
-        <li>
-          <Link to="/chiara">chiara</Link>
-        </li>
-        <li>
-          <Link to="/daniel">daniel</Link>
-        </li>
-        <li>
-          <Link to="/julius">julius</Link>
-        </li>
-        <li>
-          <Link to="/leonie">leonie</Link>
-        </li>
-        <li>
-          <Link to="/vincent">vincent</Link>
-        </li>
-      </ul>
-    </DropDownContainer>
-  );
-};
-
-const DropDownContainer = styled.div`
-  height: auto;
-  ul {
-    list-style-type: none;
-    align-items: center;
-    padding: 0;
-    li {
-      padding: 5px 0;
-      font-size: 1.25rem;
-    }
-  }
-`;
+import DropDown from "./DropDown";
 
 const Nav = () => {
   const [artistHover, setArtistHover] = useState(false);
@@ -128,16 +92,18 @@ const Nav = () => {
 };
 
 const ArtistDiv = styled.div`
+  margin: 0 50px 0 0;
   display: flex;
   flex-direction: column;
   height: auto;
   width: 100%;
-  position: absolute;
-  top: 0;
-  right: 150px;
   text-align: center;
   li {
     cursor: pointer;
+    z-index: 100;
+    :hover {
+      color: ${({ theme }) => theme.color_hightlight};
+    }
   }
 `;
 
@@ -153,6 +119,7 @@ const StyledNav = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  z-index: 50;
   // box-shadow: 0px 7px 10px black;
 `;
 
@@ -196,10 +163,10 @@ const Links = styled.ul`
   list-style: none;
   display: flex;
   position: absolute;
-  top: 5vh;
-  right: 0;
-  margin: 0;
+  top: 50px;
   transform: translateY(-50%);
+  right: 50px;
+  margin: 0;
   li {
     font-size: 1.5rem;
     a {
@@ -252,4 +219,4 @@ const Circle = styled.div`
   }
 `;
 
-export default Nav;
+export default withRouter(Nav);

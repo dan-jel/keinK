@@ -10,34 +10,28 @@ const Filterbox = ({ activeTheme }) => {
   return (
     <FilterBox>
       <Filter
-        hoverState={filter.photo.show}
-        name="PHOTO"
-        type="PHOTO"
+        hoverState={filter.visuell.show}
+        name="VISUELL"
+        type="VISUELL"
         color="red"
       />
       <Filter
-        hoverState={filter.video.show}
-        name="VIDEO"
-        type="VIDEO"
+        hoverState={filter.akustisch.show}
+        name="AKUSTISCH"
+        type="AKUSTISCH"
         color="blue"
       />
       <Filter
-        hoverState={filter.writing.show}
-        name="WRITING"
-        type="WRITING"
-        color="yellow"
-      />
-      <Filter
-        hoverState={filter.threeD.show}
-        name="3D"
-        type="THREED"
+        hoverState={filter.haptisch.show}
+        name="HAPTISCH"
+        type="HAPTISCH"
         color="green"
       />
       <Filter
-        hoverState={filter.music.show}
-        name="MUSIC"
-        type="MUSIC"
-        color="orange"
+        hoverState={filter.verbal.show}
+        name="VERBAL"
+        type="VERBAL"
+        color="yellow"
       />
     </FilterBox>
   );

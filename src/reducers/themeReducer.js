@@ -1,5 +1,6 @@
 import LeosBackground from "../img/themes/leo.jpeg";
 import VincentsBackground from "../img/themes/vince.jpeg";
+import ChiaraBackground from "../img/themes/chiara.jpeg";
 
 const initialThemes = {
   zero: {
@@ -13,6 +14,8 @@ const initialThemes = {
   },
   one: {
     id: 1,
+    bg: true,
+    background: ChiaraBackground,
     tag: "chiara",
     color_main: "#ADA296",
     color_nav: "#312F2F",
@@ -31,6 +34,7 @@ const initialThemes = {
   },
   three: {
     id: 3,
+    bg: false,
     tag: "julius",
     color_main: "red",
     color_nav: "blue",
