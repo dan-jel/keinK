@@ -1,6 +1,8 @@
 import Nav from "./components/Nav";
 import Main from "./components/Main";
 import Imprint from "./components/Imprint";
+import Guests from "./components/Guests";
+
 import React, { useState } from "react";
 import { Switch, Route } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
@@ -26,12 +28,13 @@ function App() {
       <Nav activeTheme={activeTheme} setActiveTheme={setActiveTheme} />
       <AnimatePresence>
         <Switch>
-          <Route exact path="/Imprint" component={Imprint} />
-          <Route exact path="/Chiara" component={Chiara} />
-          <Route exact path="/Daniel" component={Daniel} />
-          <Route exact path="/Julius" component={Julius} />
-          <Route exact path="/Leonie" component={Leonie} />
-          <Route exact path="/Vincent" component={Vincent} />
+          <Route exact path="/imprint" component={Imprint} />
+          <Route exact path="/guests" component={Guests} />
+          <Route exact path="/chiara" component={Chiara} />
+          <Route exact path="/daniel" component={Daniel} />
+          <Route exact path="/julius" component={Julius} />
+          <Route exact path="/leonie" component={Leonie} />
+          <Route exact path="/vincent" component={Vincent} />
           <Route exact path="/" component={Main} />
         </Switch>
       </AnimatePresence>

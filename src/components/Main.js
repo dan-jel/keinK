@@ -5,6 +5,7 @@ import Filterbox from "./Filterbox";
 import { useSelector } from "react-redux";
 import Card from "./Card";
 import Projects from "../Projects";
+import BackgroundImage from "./BackgroundImage";
 
 // Import Images
 import img0 from "../img/0.JPG";
@@ -37,16 +38,6 @@ const Main = ({ activeTheme }) => {
     </ThemeProvider>
   );
 };
-
-const BackgroundImage = styled.img`
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -50;
-  object-fit: cover;
-`;
 
 const Page = styled(motion.div)`
   overflow: hidden;
