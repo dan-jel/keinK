@@ -81,9 +81,15 @@ const Nav = () => {
             <li onClick={() => setArtistClick(!artistClick)}>artists</li>
             {artistClick || artistHover ? <DropDown /> : ""}
           </ArtistDiv>
-
           <li>
-            <Link to="/imprint">imprint</Link>
+            <Link className="fixed-nav" to="/imprint">
+              imprint
+            </Link>
+          </li>
+          <li>
+            <Link className="fixed-nav" to="/guests">
+              guests
+            </Link>
           </li>
         </Links>
       </StyledNav>
@@ -92,18 +98,16 @@ const Nav = () => {
 };
 
 const ArtistDiv = styled.div`
-  margin: 0 50px 0 0;
   display: flex;
   flex-direction: column;
   height: auto;
   width: 100%;
   text-align: center;
+  z-index: 100;
   li {
     cursor: pointer;
     z-index: 100;
-    :hover {
-      color: ${({ theme }) => theme.color_hightlight};
-    }
+    color: ${({ theme }) => theme.color_header};
   }
 `;
 
@@ -111,51 +115,47 @@ const StyledNav = styled.div`
   position: fixed;
   color: ${({ theme }) => theme.color_text_1};
   background: ${({ theme }) => theme.color_nav};
-  height: 100px;
+  height: 75px;
   width: 100%;
+  justify-content: center;
   margin: 0;
   top: 0;
   left: 0;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  z-index: 50;
+  flex-direction: column;
+  z-index: 100;
   // box-shadow: 0px 7px 10px black;
 `;
 
 const Theme = styled.ul`
+  height: 100%;
+  width: auto;
+  align-items: center;
   list-style: none;
   display: flex;
-  position: absolute;
-  top: 0;
-  left: 0;
+  position: relative;
   margin: 0;
+  padding-left: 1rem;
   li {
-    padding-left: 3.5rem;
+    padding: 0 1rem;
   }
   .circle0 {
-    background: #663399;
-    border-radius: ${({ theme }) => theme.id === 0 && "0"};
+    background: ${({ theme }) => (theme.id === 0 ? theme.color_circle : "")};
   }
   .circle1 {
-    background: #6a5acd;
-    border-radius: ${({ theme }) => theme.id === 1 && "0"};
+    background: ${({ theme }) => (theme.id === 1 ? theme.color_circle : "")};
   }
   .circle2 {
-    background: #9370db;
-    border-radius: ${({ theme }) => theme.id === 2 && "0"};
+    background: ${({ theme }) => (theme.id === 2 ? theme.color_circle : "")};
   }
   .circle3 {
-    background: #9932cc;
-    border-radius: ${({ theme }) => theme.id === 3 && "0"};
+    background: ${({ theme }) => (theme.id === 3 ? theme.color_circle : "")};
   }
   .circle4 {
-    background: #ee82ee;
-    border-radius: ${({ theme }) => theme.id === 4 && "0"};
+    background: ${({ theme }) => (theme.id === 4 ? theme.color_circle : "")};
   }
   .circle5 {
-    background: #dda0dd;
-    border-radius: ${({ theme }) => theme.id === 5 && "0"};
+    background: ${({ theme }) => (theme.id === 5 ? theme.color_circle : "")};
   }
 `;
 
@@ -163,18 +163,19 @@ const Links = styled.ul`
   list-style: none;
   display: flex;
   position: absolute;
-  top: 50px;
-  transform: translateY(-50%);
   right: 50px;
   margin: 0;
   li {
     font-size: 1.5rem;
-    a {
-      color: ${({ theme }) => theme.color_text_1};
-      text-decoration: none;
+    margin-left: 3rem;
+    .fixed-nav {
+      :hover {
+        color: ${({ theme }) => theme.color_hover};
+      }
     }
-    a:hover {
-      color: ${({ theme }) => theme.color_hightlight};
+    a {
+      color: ${({ theme }) => theme.color_header};
+      text-decoration: none;
     }
   }
 `;
@@ -182,11 +183,9 @@ const Links = styled.ul`
 const Logo = styled.h1`
   font-size: 2.5rem;
   position: absolute;
-  top: 0;
   left: 50%;
   margin: 0;
-  transform: translate(-50%, -50%);
-  margin-top: 5vh;
+  transform: translateX(-50%);
   color: ${({ theme }) => theme.color_text};
   a:hover {
     color: ${({ theme }) => theme.color_hightlight};
@@ -196,28 +195,22 @@ const Logo = styled.h1`
   }
   a {
     font-family: "Dosis", sans-serif;
-    color: ${({ theme }) => theme.color_text_1};
+    color: ${({ theme }) => theme.color_header};
+    :hover {
+      color: ${({ theme }) => theme.color_hover};
+    }
   }
 `;
 
 const Circle = styled.div`
   cursor: pointer;
-  position: absolute;
-  top: 5vh;
-  transform: translate(-40px, -50%);
+  position: relative;
   margin: 0;
   height: 25px;
   width: 25px;
   border-radius: 50%;
+  border: 2px solid white;
   // box-shadow: 2px 2px 5px 2px black;
-  &:hover {
-    margin: 0;
-    height: 35px;
-    width: 35px;
-    top: 5vh;
-    position: absolute;
-    transform: translate(-45px, -50%);
-  }
 `;
 
 export default withRouter(Nav);
