@@ -5,17 +5,9 @@ import Filterbox from "./Filterbox";
 import { useSelector } from "react-redux";
 import BackgroundImage from "./BackgroundImage";
 
-// Import Images
-import img0 from "../img/0.JPG";
-import img1 from "../img/1.jpeg";
-import img2 from "../img/2.jpg";
-import img3 from "../img/3.jpg";
-import img4 from "../img/4.jpeg";
-import img5 from "../img/5.jpeg";
-
 const Main = () => {
   const theme = useSelector((store) => store.theme);
-  const images = [img0, img1, img2, img3, img4, img5];
+
   return (
     <ThemeProvider theme={theme}>
       <Page>
