@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 import { useSelector } from "react-redux";
 
-const Filterbox = ({ activeTheme }) => {
+const Filterbox = () => {
   const filter = useSelector((store) => store.filter);
 
   return (

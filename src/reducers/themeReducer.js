@@ -15,7 +15,7 @@ const initialThemes = {
     color_nav: "rgba(0,0,0,0.75)",
     color_header: "white",
     color_text: "black",
-    color_circle: "white",
+    color_circle: "#C8C8C8",
     color_hover: "black",
   },
   one: {
@@ -51,7 +51,7 @@ const initialThemes = {
     color_nav: "rgba(0,0,0,0.75)",
     color_header: "white",
     color_text: "white",
-    color_circle: "#593D4B",
+    color_circle: "#8A5369",
     color_hover: "black",
   },
   four: {

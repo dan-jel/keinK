@@ -1,10 +1,8 @@
-import React, { useRef } from "react";
+import React from "react";
 import styled, { ThemeProvider } from "styled-components";
 import { motion } from "framer-motion";
 import Filterbox from "./Filterbox";
 import { useSelector } from "react-redux";
-import Card from "./Card";
-import Projects from "../Projects";
 import BackgroundImage from "./BackgroundImage";
 
 // Import Images
@@ -15,25 +13,14 @@ import img3 from "../img/3.jpg";
 import img4 from "../img/4.jpeg";
 import img5 from "../img/5.jpeg";
 
-const Main = ({ activeTheme }) => {
+const Main = () => {
   const theme = useSelector((store) => store.theme);
-  const contraintsRef = useRef(null);
   const images = [img0, img1, img2, img3, img4, img5];
   return (
     <ThemeProvider theme={theme}>
       <Page>
         {theme.bg ? <BackgroundImage src={theme.background} alt="" /> : ""}
-        <Filterbox activeTheme={activeTheme} />
-        <Cardbox ref={contraintsRef}>
-          {Projects.map((project) => (
-            <Card
-              project={project}
-              dragConstraints={contraintsRef}
-              key={project.id}
-              img={images[project.id]}
-            />
-          ))}
-        </Cardbox>
+        <Filterbox />
       </Page>
     </ThemeProvider>
   );
@@ -55,20 +42,6 @@ const Page = styled(motion.div)`
     color: ${({ theme }) => theme.color_text};
     font-size: 3rem;
   }
-`;
-
-const Cardbox = styled(motion.div)`
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 10px;
-  grid-auto-rows: minmax(100px, auto);
-  position: relative;
-  top: 0;
-  left: 0;
-  width: 70vw;
-  height: 75vh;
-  transform: translateY(5vh);
-  z-index: -10;
 `;
 
 export default Main;
